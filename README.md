@@ -50,6 +50,8 @@ demo使用了开发者模式，并发只能为1
    * [API设计规范](https://github.com/jumpserver/jumpserver/blob/dev/docs/api_style_guide.md)
 
 ### 贡献者
+#### 0.5.0
+- Johny Zheng <shun.johny@gmail.com>
 #### 0.4.0
 - ibuler <广宏伟>
 - 小彧 <李磊> Django资深开发者，为users模块贡献了很多代码
