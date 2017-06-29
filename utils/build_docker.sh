@@ -2,4 +2,4 @@
 #
 
 cd ..
-docker build -t jumpserver/jumpserver:v0.5.0 .
+docker build -t zsjohny/jumpserver:v0.5.0 .
