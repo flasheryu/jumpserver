@@ -3,7 +3,7 @@ LABEL MAINTAINER Johny Zheng <shun.johny@gmail.com>
 
 
 COPY . /opt/jumpserver
-COPY utils/pip.conf ~/.pip/pip.conf
+COPY utils/pip.conf /etc/pip.conf
 
 WORKDIR /opt/jumpserver
 
