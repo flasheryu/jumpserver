@@ -9,7 +9,7 @@ WORKDIR /opt/jumpserver
 
 RUN yum -y install epel-release
 RUN cd requirements && yum -y install $(cat rpm_requirements.txt)
-RUN cd requirements && pip install -r requirements.txt
+RUN pip install -r requirements.txt
 RUN yum clean all
 
 #RUN rm -f data/db.sqlite3
