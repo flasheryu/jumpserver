@@ -3,6 +3,8 @@ LABEL MAINTAINER Johny Zheng <shun.johny@gmail.com>
 
 
 COPY . /opt/jumpserver
+COPY utils/pip.conf ~/.pip/pip.conf
+
 WORKDIR /opt/jumpserver
 
 RUN yum -y install epel-release
