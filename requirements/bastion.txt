@@ -18,3 +18,4 @@ eventlet
 django-filter>=1.0.2
 passlib>=1.7.1
 django-livereload-server
+python-mysqldb
