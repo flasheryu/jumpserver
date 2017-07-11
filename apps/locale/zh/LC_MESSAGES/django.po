@@ -1682,7 +1682,7 @@ msgstr "登录日志"
 
 #: templates/_nav.html:92
 msgid "Visit us"
-msgstr "访问官网"
+msgstr "访问kuick官网"
 
 #: templates/_nav_user.html:4
 msgid "My assets"
