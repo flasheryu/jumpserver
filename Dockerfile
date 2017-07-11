@@ -21,5 +21,7 @@ VOLUME /opt/jumpserver/logs
 
 RUN cp config_docker.py config.py
 
+EXPOSE 80
 EXPOSE 8080
+
 CMD cd utils && sh make_migrations.sh && sh init_db.sh && cd .. && python run_server.py

@@ -137,6 +137,8 @@ class DockerConfig(Config):
     EMAIL_USE_TLS = True if EMAIL_PORT == 587 else False
     EMAIL_SUBJECT_PREFIX = os.environ.get('EMAIL_SUBJECT_PREFIX') or '[Jumpserver] '
     SITE_URL = os.environ.get('SITE_URL') or 'http://localhost:8080'
+    HTTP_BIND_HOST = os.environ.get('HTTP_BIND_HOST') or '0.0.0.0'
+    HTTP_LISTEN_PORT = os.environ.get('HTTP_LISTEN_PORT') or '8080'
 
 
 class DockerMysqlConfig(Config):
