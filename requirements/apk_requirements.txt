@@ -1,0 +1,1 @@
+libjpeg freetype lcms2 libwebp tcl tk sshpass make gcc g++ mysql-client libffi-dev libffi zlib-dev jpeg-dev openssl-dev py-mysqldb

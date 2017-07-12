@@ -144,10 +144,10 @@ class DockerConfig(Config):
 class DockerMysqlConfig(Config):
     DEBUG = False
     DB_ENGINE = 'mysql'
-    DB_HOST = '127.0.0.1'
+    DB_HOST = 'rm-bp18pciktjjurinnvo.mysql.rds.aliyuncs.com'
     DB_PORT = 3306
-    DB_USER = 'root'
-    DB_PASSWORD = 'YRSSx#FGgpzo'
+    DB_USER = 'ccc_test'
+    DB_PASSWORD = 'ccTsddTTdddAA123!@#'
     DB_NAME = 'jumpserver'
     REDIS_HOST = os.environ.get('REDIS_HOST') or 'redis'
     EMAIL_HOST = os.environ.get('EMAIL_HOST') or 'smtp.qq.com'
@@ -167,4 +167,4 @@ config = {
     'docker-mysql': DockerMysqlConfig,
 }
 
-env = 'docker'
+env = 'docker-mysql'

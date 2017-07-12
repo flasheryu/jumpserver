@@ -1,2 +1,2 @@
 django-livereload-server
-python-mysqldb
+MySQL-python
