@@ -1621,7 +1621,7 @@ msgstr "搜索"
 
 #: templates/_header_bar.html:14
 msgid "Welcome to use Jumpserver system"
-msgstr "欢迎使用Jumpserver开源跳板机系统"
+msgstr "Kuick Bastion Server"
 
 #: templates/_header_bar.html:18
 msgid "Help"
@@ -1682,7 +1682,7 @@ msgstr "登录日志"
 
 #: templates/_nav.html:92
 msgid "Visit us"
-msgstr "访问官网"
+msgstr "访问kuick官网"
 
 #: templates/_nav_user.html:4
 msgid "My assets"
@@ -1917,7 +1917,7 @@ msgstr "上一步"
 
 #: users/templates/users/first_login_done.html:30
 msgid "Welcome to use jumpserver, visit "
-msgstr "欢迎使用Jumpserver开源跳板机系统"
+msgstr "Kuick Bastion Server"
 
 #: users/templates/users/first_login_done.html:31
 msgid "Use guide"

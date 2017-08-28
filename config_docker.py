@@ -150,13 +150,34 @@ class DockerConfig(Config):
     EMAIL_USE_TLS = True if EMAIL_PORT == 587 else False
     EMAIL_SUBJECT_PREFIX = os.environ.get('EMAIL_SUBJECT_PREFIX') or '[Jumpserver] '
     SITE_URL = os.environ.get('SITE_URL') or 'http://localhost:8080'
+    HTTP_BIND_HOST = os.environ.get('HTTP_BIND_HOST') or '0.0.0.0'
+    HTTP_LISTEN_PORT = os.environ.get('HTTP_LISTEN_PORT') or '8080'
 
+
+class DockerMysqlConfig(Config):
+    DEBUG = False
+    DB_ENGINE = 'mysql'
+    DB_HOST = '127.0.0.1'
+    DB_PORT = 3306
+    DB_USER = 'root'
+    DB_PASSWORD = 'YRSSx#FGgpzo'
+    DB_NAME = 'jumpserver'
+    REDIS_HOST = os.environ.get('REDIS_HOST') or 'redis'
+    EMAIL_HOST = os.environ.get('EMAIL_HOST') or 'smtp.qq.com'
+    EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 465))
+    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER') or 'admin'
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD') or 'somepasswrd'
+    EMAIL_USE_SSL = True if EMAIL_PORT == 465 else False
+    EMAIL_USE_TLS = True if EMAIL_PORT == 587 else False
+    EMAIL_SUBJECT_PREFIX = os.environ.get('EMAIL_SUBJECT_PREFIX') or '[Jumpserver] '
+    SITE_URL = os.environ.get('SITE_URL') or 'http://localhost:8080'
 
 config = {
     'development': DevelopmentConfig,
     'production': ProductionConfig,
     'default': DevelopmentConfig,
     'docker': DockerConfig,
+    'docker-mysql': DockerMysqlConfig,
 }
 
 env = 'docker'
