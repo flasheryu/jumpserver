@@ -33,7 +33,7 @@ class Config:
     ALLOWED_HOSTS = ['*']
 
     # Development env open this, when error occur display the full process track, Production disable it
-    DEBUG = True
+    DEBUG = os.environ.get('DEBUG') or True
 
     # DEBUG, INFO, WARNING, ERROR, CRITICAL can set. See https://docs.djangoproject.com/en/1.10/topics/logging/
     LOG_LEVEL = 'DEBUG'
