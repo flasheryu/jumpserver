@@ -126,6 +126,23 @@ if CONFIG.DB_ENGINE == 'sqlite':
             'ATOMIC_REQUESTS': True,
         }
     }
+elif CONFIG.DB_ENGINE == 'mysql':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.%s' % CONFIG.DB_ENGINE,
+            'NAME': CONFIG.DB_NAME,
+            'HOST': CONFIG.DB_HOST,
+            'PORT': CONFIG.DB_PORT,
+            'USER': CONFIG.DB_USER,
+            'PASSWORD': CONFIG.DB_PASSWORD,
+            'ATOMIC_REQUESTS': True,
+        },
+        'OPTIONS': {
+            'read_default_file': os.path.dirname(os.path.abspath(__file__)) + '/my.cnf',
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+#            'init_command': 'SET default_storage_engine=INNODB',
+        }
+    }
 else:
     DATABASES = {
         'default': {
