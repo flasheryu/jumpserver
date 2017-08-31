@@ -126,6 +126,7 @@ class ProductionConfig(Config):
 
 
 class DockerConfig(Config):
+    DEBUG = os.environ.get('DEBUG') or False
     DB_ENGINE = 'sqlite'
     DB_NAME = os.path.join(BASE_DIR, 'data', 'db.sqlite3')
     REDIS_HOST = os.environ.get('REDIS_HOST') or 'redis'
@@ -142,7 +143,7 @@ class DockerConfig(Config):
 
 
 class DockerMysqlConfig(Config):
-    DEBUG = False
+    DEBUG = os.environ.get('DEBUG') or False
     DB_ENGINE = 'mysql'
     DB_HOST = '127.0.0.1'
     DB_PORT = 3306
