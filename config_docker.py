@@ -168,4 +168,4 @@ config = {
     'docker-mysql': DockerMysqlConfig,
 }
 
-env = 'docker-mysql'
+env = 'docker'
