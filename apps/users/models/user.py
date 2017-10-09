@@ -38,8 +38,9 @@ class User(AbstractUser):
     phone = models.CharField(max_length=20, blank=True, null=True, verbose_name=_('Phone'))
     enable_otp = models.BooleanField(default=False, verbose_name=_('Enable OTP'))
     secret_key_otp = models.CharField(max_length=16, blank=True)
+    # Todo: private_key may be not used
     _private_key = models.CharField(max_length=5000, blank=True, verbose_name=_('ssh private key'))
-    _public_key = models.CharField(max_length=1000, blank=True, verbose_name=_('ssh public key'))
+    _public_key = models.CharField(max_length=5000, blank=True, verbose_name=_('ssh public key'))
     comment = models.TextField(max_length=200, blank=True, verbose_name=_('Comment'))
     is_first_login = models.BooleanField(default=False)
     date_expired = models.DateTimeField(default=date_expired_default, blank=True, null=True,
@@ -73,7 +74,7 @@ class User(AbstractUser):
 
     @property
     def is_expired(self):
-        if self.date_expired < timezone.now():
+        if self.date_expired and self.date_expired < timezone.now():
             return True
         else:
             return False
@@ -204,7 +205,7 @@ class User(AbstractUser):
             'wechat': self.wechat,
             'phone': self.phone,
             'comment': self.comment,
-            'date_expired': self.date_expired.strftime('%Y-%m-%d %H:%M:%S')
+            'date_expired': self.date_expired.strftime('%Y-%m-%d %H:%M:%S') if self.date_expired is not None else None
         })
 
     @classmethod

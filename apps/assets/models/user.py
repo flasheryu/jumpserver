@@ -35,13 +35,13 @@ class AdminUser(models.Model):
     username = models.CharField(max_length=16, verbose_name=_('Username'))
     _password = models.CharField(
         max_length=256, blank=True, null=True, verbose_name=_('Password'))
-    _private_key = models.CharField(max_length=4096, blank=True, null=True, verbose_name=_('SSH private key'),
+    _private_key = models.TextField(max_length=4096, blank=True, null=True, verbose_name=_('SSH private key'),
                                     validators=[private_key_validator,])
     become = models.BooleanField(default=True)
     become_method = models.CharField(choices=BECOME_METHOD_CHOICES, default='sudo', max_length=4)
     become_user = models.CharField(default='root', max_length=64)
     become_pass = models.CharField(default='', max_length=128)
-    _public_key = models.CharField(
+    _public_key = models.TextField(
         max_length=4096, blank=True, verbose_name=_('SSH public key'))
     comment = models.TextField(blank=True, verbose_name=_('Comment'))
     date_created = models.DateTimeField(auto_now_add=True, null=True)
@@ -81,8 +81,7 @@ class AdminUser(models.Model):
             return None
         project_dir = settings.PROJECT_DIR
         tmp_dir = os.path.join(project_dir, 'tmp')
-        #key_name = md5(self._private_key).hexdigest()
-        key_name = md5((self._private_key).encode('utf-8')).hexdigest()
+        key_name = md5(self._private_key.encode()).hexdigest()
         key_path = os.path.join(tmp_dir, key_name)
         if not os.path.exists(key_path):
             self.private_key.write_private_key_file(key_path)
@@ -139,9 +138,9 @@ class SystemUser(models.Model):
         max_length=256, blank=True, verbose_name=_('Password'))
     protocol = models.CharField(
         max_length=16, choices=PROTOCOL_CHOICES, default='ssh', verbose_name=_('Protocol'))
-    _private_key = models.CharField(
+    _private_key = models.TextField(
         max_length=8192, blank=True, verbose_name=_('SSH private key'))
-    _public_key = models.CharField(
+    _public_key = models.TextField(
         max_length=8192, blank=True, verbose_name=_('SSH public key'))
     auth_method = models.CharField(choices=AUTH_METHOD_CHOICES, default='K',
                                    max_length=1, verbose_name=_('Auth method'))
